@@ -1,0 +1,4 @@
+{"recordId":1,"info":{"recordStatus":"UPDATED","created":"2002-10-02T15:00:00.000Z","updated":["2002-10-02T15:30:00.000Z"],"deleted":null,"recordData":"01234567"}}
+{"recordId":2,"info":{"recordStatus":"UPDATED","created":"2002-10-02T15:00:00.000Z","updated":["2002-10-02T15:30:00.000Z"],"deleted":null,"recordData":"01234567"}}
+{"recordId":"c027c8c2-a133-4154-89f4-20dcd97bfaf4","info":{"recordStatus":"NEW","created":"2018-12-18T20:31:29.381Z","updated":[],"deleted":null,"recordData":"1234567890abcdef"}}
+{"recordId":"9b8bb718-a562-42f3-80e0-b6da1b1e33e0","info":{"recordStatus":"NEW","created":"2018-12-18T21:06:42.974Z","updated":[],"deleted":null,"recordData":"1234567890abcdef"}}

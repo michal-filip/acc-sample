@@ -6,6 +6,7 @@ import com.atlassian.codesample.michalfilip.recordapi.model.RecordDTO;
 import com.atlassian.codesample.michalfilip.recordapi.model.RecordInfoDTO;
 import com.atlassian.codesample.michalfilip.recordapi.model.RecordStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -17,19 +18,17 @@ import java.util.function.Supplier;
 public class RecordServiceImpl implements RecordService {
 
     private static final Object recordStorageLock = new Object();
-    private static File recordStorage = new File("C:\\DEV\\recordapi-data\\records.txt");
-    static {
+    private final File recordStorage;
+    private final ObjectMapper objectMapper;
+
+    public RecordServiceImpl(ObjectMapper objectMapper, @Value("${storage.record.filepath}") String recordStoragePath) {
+        this.objectMapper = objectMapper;
+        this.recordStorage = new File(recordStoragePath);
         synchronized (recordStorageLock) {
-            if (!recordStorage.exists()) {
+            if (!this.recordStorage.exists()) {
                 throw new RuntimeException("Record storage file does not exist!");
             }
         }
-    }
-
-    private final ObjectMapper objectMapper;
-
-    public RecordServiceImpl(ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
     }
 
     @Override
